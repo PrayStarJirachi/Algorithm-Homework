@@ -1,0 +1,65 @@
+\item Proof by introduction
+\begin{proof}
+We can easily prove the lemma using induction:
+\begin{enumerate}
+    \item Basic step\\
+    When $\displaystyle n = 2^1$, the lemma obvirusly holds because
+	\[\binom{2}{1} = 0\]
+    \item Induction step\\
+    Assume that the lemma holds where $n$ equals to $2^d$, namely
+	\[\binom{n}{k} = 0\]
+	when $1 \leq k \leq n - 1$.
+
+	Then we will show that the lemma holds when $n$ equals to $2^{d + 1}$.
+
+	According to the hints, on the one hand, the number of paths to the $n$-th line and the $k$-th grid equals to
+	\[\binom{n}{k}\]
+	On the other hand, we can also calculate the number by Multiplication Principle and Addition Principle, namely
+	\begin{equation}\label{equation1}
+	\binom{n}{k} = \sum_{i = 0}^{n / 2} \binom{n / 2}{i} * \binom{n / 2}{k - i}
+	\end{equation}
+	Then our proof divides into three cases:
+	\begin{itemize}
+		\item When $1 \leq k \leq n / 2 - 1$, it is obvirusly that
+		\[\binom{n / 2}{k} = 0\]
+		and
+		\[\binom{n / 2}{0} = \binom{n / 2}{n / 2} = 1\]
+		According to the equation \eqref{equation1}, we have
+		\[\binom{n}{k} = \binom{n / 2}{k - 0} + \binom{n / 2}{k - n / 2}\]
+		 By assumption, when $1 \leq k < n / 2$, we have
+		\[\binom{n / 2}{k} = 0\]
+		Notice that $k - n / 2 < n / 2$, so we have
+		\[\binom{n / 2}{k - n / 2} = 0\]
+		Therefore \[\displaystyle \binom{n}{k} = 0\]
+		\item
+		When $k = n / 2$, it is obvirusly that
+		\[\binom{n / 2}{k} = \binom{n / 2}{k - n / 2} = 1\]
+		Therefore
+		\[\binom{n}{k} = (1 + 1) = 2 \equiv 0 \pmod{2}\]
+		\item
+		When $n / 2 \leq k < n$, it is easy to see that
+		\[\binom{n / 2}{k} = 0\]
+		And by assumption
+		\[\binom{n / 2}{k - n / 2} = 0\]
+		So that we have
+		\[\binom{n}{k} = 0\]
+	\end{itemize}
+
+    \item Conclusion
+	By induction, we have
+    \[\binom{n}{k} \equiv 0 \pmod{2}\]
+	where $1 \leq k \leq n - 1$ and $n = 2^d~(d \geq 1)$.
+\end{enumerate}
+\end{proof}
+\item Direct Proof
+\begin{proof}
+$\displaystyle \forall n = 2^d,~ 1\leq k\leq (n - 1)$\\
+
+$\displaystyle \binom{n}{k} = \frac{n!}{k!(n - k)!~} = 2^{p} * q,~p = \sum_{i = 1}^{d}\lfloor \frac{n}{2^i}\rfloor - \sum_{i = 1}^{d}\lfloor \frac{k}{2^i}\rfloor - \sum_{i = 1}^{d}\lfloor \frac{n - k}{2^i}\rfloor$\\
+
+if $i = d$ then $ ~\lfloor \frac{n}{2^i}\rfloor = 1,~\lfloor \frac{k}{2^i}\rfloor = \lfloor \frac{n - k}{2^i}\rfloor = 0$\\
+
+$\displaystyle p = 1 - 0 - 0 + \sum_{i = 1}^{d - 1}(\lfloor \frac{n}{2^i}\rfloor - \lfloor \frac{k}{2^i}\rfloor - \lfloor \frac{n - k}{2^i}\rfloor)\geq 1  + \sum_{i = 1}^{d - 1}( \frac{n}{2^i} - \frac{k}{2^i} - \frac{n - k}{2^i})$ = 1\\
+
+so $\displaystyle 2 \mid \binom{n}{k}$ that is $\displaystyle \binom{n}{k}~mod~2 = 0$
+\end{proof}
