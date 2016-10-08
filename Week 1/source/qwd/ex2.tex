@@ -1,7 +1,7 @@
 Since we use dynamic programing, the runing time depends on how many binomial coefficients we calculate.
 Consider the formula
 \[\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}\]
-It's easy to see that the area we calculate is an parallelogram in Pascal¡¯s triangle.
+It's easy to see that the area we calculate is an parallelogram in Pascal's triangle.
 More specificly, in order to get the answer of $\binom{n}{k}$, there are exactly $n-k$ numbers we calculate in the columns from $1$ to $k$,
 so we need to do $O(k\cdot (n-k))$ additions.\par
 The time we need for a single addtion depends on the length of the result, namely $\log \binom{n}{k}$.

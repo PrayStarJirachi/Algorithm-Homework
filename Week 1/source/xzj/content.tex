@@ -3,7 +3,7 @@
 We can easily prove the lemma using induction:
 \begin{enumerate}
     \item Basic step\\
-    When $\displaystyle n = 2^1$, the lemma obvirusly holds because
+    When $\displaystyle n = 2^1$, the lemma obviously holds because
 	\[\binom{2}{1} = 0\]
     \item Induction step\\
     Assume that the lemma holds where $n$ equals to $2^d$, namely
@@ -20,7 +20,7 @@ We can easily prove the lemma using induction:
 	\end{equation}
 	Then our proof divides into three cases:
 	\begin{itemize}
-		\item When $1 \leq k \leq n / 2 - 1$, it is obvirusly that
+		\item When $1 \leq k \leq n / 2 - 1$, it is obviously that
 		\[\binom{n / 2}{k} = 0\]
 		and
 		\[\binom{n / 2}{0} = \binom{n / 2}{n / 2} = 1\]
@@ -32,7 +32,7 @@ We can easily prove the lemma using induction:
 		\[\binom{n / 2}{k - n / 2} = 0\]
 		Therefore \[\displaystyle \binom{n}{k} = 0\]
 		\item
-		When $k = n / 2$, it is obvirusly that
+		When $k = n / 2$, it is obviously that
 		\[\binom{n / 2}{k} = \binom{n / 2}{k - n / 2} = 1\]
 		Therefore
 		\[\binom{n}{k} = (1 + 1) = 2 \equiv 0 \pmod{2}\]
@@ -45,7 +45,7 @@ We can easily prove the lemma using induction:
 		\[\binom{n}{k} = 0\]
 	\end{itemize}
 
-    \item Conclusion
+    \item Conclusion\\
 	By induction, we have
     \[\binom{n}{k} \equiv 0 \pmod{2}\]
 	where $1 \leq k \leq n - 1$ and $n = 2^d~(d \geq 1)$.

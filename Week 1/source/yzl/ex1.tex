@@ -2,7 +2,7 @@ This complexity of the recursion process mainly depends on the additions.
 Let's define $F_{i, j}$ as when such recursion process start at calculating $\binom{i}{j}$, 
 the number of additions it will do.
 
-Obvirusly, $F_{i, j}$ consists of three parts below:
+obviously, $F_{i, j}$ consists of three parts below:
 \begin{itemize}
 \item $F_{i - 1, j - 1}$: add the number of addition operations in $\binom{i - 1}{j - 1}$ to the current answer.
 \item $F_{i - 1, j}$: add the $\binom{i - 1}{j - 1}$'s answer.
