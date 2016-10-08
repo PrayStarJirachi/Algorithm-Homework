@@ -1,0 +1,28 @@
+We can easily come out an algorithm using the formular which is proved in Ex5.
+\begin{algorithm}[H]
+	\caption{An efficient method calculating the binomial coefficient}
+	\begin{algorithmic}[1]
+		\Function {binom} {$n$, $k$, $p$}
+			\If {$m > n$ \OR $m < 0$}
+				\State \Return $0$
+			\EndIf
+			\If{$n < 2$} :
+				\State \Return $1$
+			\EndIf
+			\If{$p = 0$} :
+				\State $p = 1$
+				\While{$p * 2 \geq n$}
+					\State $p \leftarrow p * 2$
+				\EndWhile
+			\Else
+				\While{$p \geq n$}
+					\State $p \leftarrow p / 2$
+				\EndWhile
+			\EndIf
+			\State \Return (\Call{Binom}{$n - p$, $m - p$, $p$} + \Call{Binom}{$n - p$, $m$, $p$}) $\bmod 2$
+		\EndFunction
+	\end{algorithmic}
+\end{algorithm}
+
+\noindent The implementation in python is displayed below
+\pythoncode{source/xzj/ex5.py}

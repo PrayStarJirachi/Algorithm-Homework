@@ -1,6 +1,5 @@
 \documentclass[12pt, a4paper]{article}
 
-
 \usepackage{graphicx,amsmath,amssymb,amsthm, boxedminipage, bm}
 \usepackage{float}
 \usepackage[body={14.64cm, 24.62cm}, centering, dvipdfm]{geometry}
@@ -42,6 +41,8 @@
 \usepackage{setspace}
 \usepackage{enumerate}
 \usepackage{indentfirst}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage[short,nodayofweek,level,24hr]{datetime}
 
 \usepackage[table]{xcolor}
@@ -52,7 +53,8 @@
 
 %\setlength{\parindent}{0em}
 %\setlength{\mathindent}{0pt}
-
+\algnewcommand\AND{\textbf{and~}}
+\algnewcommand\OR{\textbf{or~}}
 \newfontfamily\Courier{Courier New}
 \renewcommand{\theFancyVerbLine}{\rmfamily\scriptsize\arabic{FancyVerbLine}}
 \newcommand{\cppcode}[1]{
@@ -85,8 +87,6 @@
     \inputminted[mathescape,
     			 tabsize=2,
     			 linenos,
-    			 frame=single,
-    			 framesep=2mm,
     			 breakaftergroup=true,
     			 breakautoindent=true,
     			 breakbytoken=true,
@@ -121,10 +121,22 @@
 	\maketitle
 	\section{Recursion and Dynamic Programming}
 	\exercise{}
+	\input{source/yzl/ex1.tex}
+
+	\exercise{}
+	\input{source/qwd/ex2.tex}
+
+	\exercise{}
+	\input{source/qwd/ex3.tex}
+
+	\exercise{}
 	\begin{enumerate}
 		\input{source/xzj/content.tex}
 	\end{enumerate}
+
 	\exercise{}
+	\input{source/yjc/ex5.tex}
+
 	\exercise{}
-	\exercise{}
+	\input{source/yzl/ex6.tex}
 \end{document}

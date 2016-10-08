@@ -1,9 +1,0 @@
-\documentclass{ctexart}
-\usepackage{amsmath}
-\begin{document}
-\section{Exercise2}
-Since we use dynamic programing, the runing time depends on how many binomial coefficients we calculate. Use formula $\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}$, it's easy to see that the area we calculate is an parallelogram in Pascal¡¯s triangle. More specificly, to get the answer of $\binom{n}{k}$, there are exactly $n-k$ numbers we calculate in the columns from $1$ to $k$, so we need to do $O(k\cdot (n-k))$ additions.\par
-The time we need for a single addtion depends on the length of the result: $\log \binom{n}{k}$. Since $\sum \binom{n}{k}=2^n$, $\binom{n}{k}$ has a length up to $n$. So the upper bound of the running time is $O(nk\cdot (n-k))$. This is not very efficient.
-\section{Exercis3}
-The additions we need is the same as Ex2, $O(k\cdot (n-k))$. But this time the addition can be done in $O(1)$ time because we only need to keep the result  modulo $2$. So the running time is $O(k\cdot (n-k))$. This is quite efficient.
-\end{document}

@@ -1,0 +1,16 @@
+Assume it will form a rho-like process. Considering $i$ is the entrance of the ``circle'' of the proceses, we have
+\[F'_i = F'_j~\text{and}~F'_{i+1}=F'_{j+1}\]
+But
+\[F'_{i-1} \neq F'_{j-1}\]
+If not, you can easily see that $i-1$ is the entrace of the ``circle''.
+
+\noindent But according to the formula
+\[F'_{i+1}=F'_{i}+F'_{i-1}\]
+We have
+\[F'_i = F'_j~\text{and}~F'_{i+1}=F'_{j+1} \Rightarrow F'_{i-1} = F'_{j-1}\]
+which is a contradictory. Thus the assumption does not hold.
+
+Consider every $F'_{i}, F'_{i+1}$ can form a pair $\{F'_i, F'_{i+1}\}$.
+Because $F'_{i} \in [0, k)$, the number of such pair will not exceed $k^2$.
+According to the Pigeon's Theorm, there must be a cycle-like process whose length doesn't exceed $k^2$,
+so we can find $j$ which satisfiied $F'_{0} = F'_{j}$, $F'_{1} = F'_{j+1}$ and $F'_{n} = F'_{n\,mod\,j}$ within the complexity $O(k^2)$.
