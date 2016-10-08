@@ -53,13 +53,31 @@ We can easily prove the lemma using induction:
 \end{proof}
 \item Direct Proof
 \begin{proof}
-$\displaystyle \forall n = 2^d,~ 1\leq k\leq (n - 1)$\\
+We can denote the binomial coefficient as $2^p * q$, namely
+\begin{equation}\label{equation2}
+\binom{n}{k} = \frac{n!}{k!(n - k)!} = 2^p * q
+\end{equation}
+where $2 \nmid q$, $n = 2^d(d \geq 1)$ and $1\leq k\leq (n - 1)$.
 
-$\displaystyle \binom{n}{k} = \frac{n!}{k!(n - k)!~} = 2^{p} * q,~p = \sum_{i = 1}^{d}\lfloor \frac{n}{2^i}\rfloor - \sum_{i = 1}^{d}\lfloor \frac{k}{2^i}\rfloor - \sum_{i = 1}^{d}\lfloor \frac{n - k}{2^i}\rfloor$\\
+We can easily calculate the exponent $p$ with the formular below
+\begin{displaymath}
+p = \sum_{i = 1}^{d}\left\lfloor \frac{n}{2^i} \right\rfloor - \sum_{i = 1}^{d}\left\lfloor \frac{k}{2^i}\right\rfloor - \sum_{i = 1}^{d}\left\lfloor \frac{n - k}{2^i}\right\rfloor
+\end{displaymath}
 
-if $i = d$ then $ ~\lfloor \frac{n}{2^i}\rfloor = 1,~\lfloor \frac{k}{2^i}\rfloor = \lfloor \frac{n - k}{2^i}\rfloor = 0$\\
+Specially when $i = d$, we have
+\begin{displaymath}
+\left\lfloor \frac{n}{2^i} \right\rfloor = 1~\text{and}~\left\lfloor \frac{k}{2^i}\right\rfloor = \left\lfloor \frac{n - k}{2^i}\right\rfloor = 0
+\end{displaymath}
 
-$\displaystyle p = 1 - 0 - 0 + \sum_{i = 1}^{d - 1}(\lfloor \frac{n}{2^i}\rfloor - \lfloor \frac{k}{2^i}\rfloor - \lfloor \frac{n - k}{2^i}\rfloor)\geq 1  + \sum_{i = 1}^{d - 1}( \frac{n}{2^i} - \frac{k}{2^i} - \frac{n - k}{2^i})$ = 1\\
-
-so $\displaystyle 2 \mid \binom{n}{k}$ that is $\displaystyle \binom{n}{k}~mod~2 = 0$
+According to the equation \eqref{equation2}, we have
+\begin{displaymath}
+	\begin{split}
+		p &= 1 - 0 - 0 + \sum_{i = 1}^{d - 1} \left\lfloor \frac{n}{2^i}\right\rfloor - \left\lfloor \frac{k}{2^i}\right\rfloor - \left\lfloor \frac{n - k}{2^i}\right\rfloor\\
+		&\geq 1  + \sum_{i = 1}^{d - 1} \frac{n}{2^i} - \frac{k}{2^i} - \frac{n - k}{2^i} = 1
+	\end{split}
+\end{displaymath}
+Hence we have
+\[2 \mid \binom{n}{k}\]
+That is
+\[\binom{n}{k} \equiv \pmod{2}\]
 \end{proof}
