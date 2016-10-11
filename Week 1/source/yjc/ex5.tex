@@ -1,8 +1,20 @@
-We can easily come out an algorithm using the formular which is proved in Ex5.
+We can easily come out an algorithm using the formular which is proved in Ex5. And here comes out of a theorem proved below.
+\begin{theorem}
+Let $p$ represents the maximum $2^d$ which is less than $n$, then either $m > n - p$ or $m - p \leq 0$ holds.
+\end{theorem}
+\begin{proof}
+	It is obvirusly that $p \geq \dfrac{n}{2}$ according to the pseudocode and the definition. Then the proof divided into two cases:
+	\begin{enumerate}
+		\item If $m \leq \dfrac{n}{2}$, then $m - p \leq 0$;
+		\item If $m > \dfrac{n}{2}$, then $m > \dfrac{n}{2} \geq n - p$.
+	\end{enumerate}
+\end{proof}
+
+And with the theorem proved above, we can come up with a algorithm:
 \begin{algorithm}[H]
 	\caption{An efficient method calculating the binomial coefficient}
 	\begin{algorithmic}[1]
-		\Function {binom} {$n$, $k$, $p$}
+		\Function {binom} {$n$, $m$, $p$}
 			\If {$m > n$ \OR $m < 0$}
 				\State \Return $0$
 			\EndIf
@@ -11,7 +23,7 @@ We can easily come out an algorithm using the formular which is proved in Ex5.
 			\EndIf
 			\If{$p = 0$} :
 				\State $p = 1$
-				\While{$p * 2 \geq n$}
+				\While{$p * 2 < n$}
 					\State $p \leftarrow p * 2$
 				\EndWhile
 			\Else
