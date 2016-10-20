@@ -1,0 +1,10 @@
+By the linearity of expectaton, the expected number of comparisons of quicksort on a random input is:\\
+\begin{align}
+	\mathbb{E}[comparisons] &= \sum_{i \neq j} \frac{1}{|i - j| + 1}\\
+							&= 2 * \sum_{i = 1}^{n - 1} \sum_{j = i + 1}^{n} \frac{1}{j - i + 1}\\
+							&= 2 * \sum_{i = 1}^{n - 1} \sum_{k = 2}^{n - i + 1} \frac{1}{k}\\
+							&= 2 * \sum_{k = 2}^{n} \frac{n - k + 1}{k}\\
+							&= 2 * [(n - 1) * \sum_{k = 2}^{n} - (n - 1)]\\
+							&= 2 * [(n - 1) * (H_n - 1) - (n - 1)]\\
+							&= 2 * (n - 1) * (H_n - 1)
+\end{align}
