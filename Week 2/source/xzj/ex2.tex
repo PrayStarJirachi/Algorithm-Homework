@@ -1,14 +1,14 @@
 \begin{itemize}
 	\item Step1, Let $B_0 = A$ ($B_0$ is of size $n$).
 	\item Step2, divide $B_0$ into $n/2$ pairs, make a comparison in each pair and put the bigger one into $B_1$ ($B_1$ is of size $n/2$).
-	\item Step3, do the same thing in Step2 to generate $B_2$ by $B_1$, generate$B_3$ by $B_2 \cdots$ until we get $B_{log_{2}n}$(containing only one element, which is the maximum).
+	\item Step3, do the same thing in Step2 to generate $B_2$ by $B_1$, generate$B_3$ by $B_2 \cdots$ until we get $B_{\log_{2}n}$(containing only one element, which is the maximum).
 \end{itemize}
 
 \indent The above three steps use $n - 1$ comparisons in all.
 
-Because we need $\displaystyle \frac{n}{2^i}$ comparions to generate $B_i (1\leq i \leq log_{2}n)$
-\[\sum_{i = 1} ^ {log_{2}n} \frac{n}{2^i}= n - 1\]
+Because we need $\displaystyle \frac{n}{2^i}$ comparions to generate $B_i (1\leq i \leq \log_{2}n)$
+\[\sum_{i = 1} ^ {\log_{2}n} \frac{n}{2^i}= n - 1\]
 
-The maximum compares with $log_{2}n$ elements in above steps, and the second largest element is obviously in these $log_{2}n$ elements. So we only need another $log_{2}n - 1$ comparisons to find the second largest element.
+The maximum compares with $\log_{2}n$ elements in above steps, and the second largest element is obviously in these $\log_{2}n$ elements. So we only need another $\log_{2}n - 1$ comparisons to find the second largest element.
 
-In all, the total number of comparisons is $N = n- 1 + log_{2}n - 1 = n + log_{2}n - 2$
+In all, the total number of comparisons is $N = n- 1 + \log_{2}n - 1 = n + \log_{2}n - 2$

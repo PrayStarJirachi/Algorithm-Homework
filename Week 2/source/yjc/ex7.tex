@@ -1,0 +1,24 @@
+Recalling the proof that $A_{i, j} = 1$ iff the number in $[i, j]$ in the input sequence that occurs first must be $i$, we can obvirusly make an inferrence that $B_{i, j, k} = 1$ iff the number in $[i, j] \cup [i, k]$ in the input sequence that occurs first must be $i$.
+
+Notice that every number has no difference among other numbers except their pronunciations. In other words, we can choose the number which occurs first with equal probability.
+
+Hence
+\[\mathbb{E}[B_{i, j, k}] = \dfrac{1}{\left|[i, j] \cup [i, k]\right|}\]
+
+\begin{lemma}
+$\left|[i, j] \cup [i, k]\right| = \max\{i, j, k\} - \min\{i, j, k\} + 1$
+\end{lemma}
+\begin{proof}
+We will prove the lemma with three cases below.
+\begin{itemize}
+\item If $i = \min\{i, j, k\}$, then
+\[\left|[i, j] \cup [i, k]\right| = \max\{j, k\} - i + 1 = \max\{i, j, k\} - \min\{i, j, k\} + 1\]
+\item If $i = \max\{i, j, k\}$, then
+\[\left|[i, j] \cup [i, k]\right| = i - \min\{j, k\} + 1 = \max\{i, j, k\} - \min\{i, j, k\} + 1\]
+\item If $j < i < k$ or $k < i < j$, then
+\[\left|[i, j] \cup [i, k]\right| = \max\{j, k\} - \min\{j, k\} + 1 = \max\{i, j, k\} - \min\{i, j, k\} + 1\]
+\end{itemize}
+\end{proof}
+
+According to the lemma, the following formula holds.
+\[\mathbb{E}[B_{i, j, k}] = \dfrac{1}{\max\{i, j, k\} - \min\{i, j, k\} + 1}\]
