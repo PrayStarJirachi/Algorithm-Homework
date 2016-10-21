@@ -1,20 +1,19 @@
-\section{Ex.9}
-	As we did in Ex8, let $k$ be the answer for $QUICKSELECT$. Since the input is random, we can assume that every number from $1$ to $n$ is equally likely to be the answer.\par
-	So the expected number of comparisons is
-	\begin{align*}
-		E[C] &= \frac{1}{n}\sum_{k=1}^{n}E[\sum_{i\neq j, i\neq k, j\neq k}B_{i,j,k}+\sum_{i\neq k}A_{k,i}]\\
-		&= \frac{1}{n}(\sum_{i\neq j, i\neq k, j\neq k}\frac{1}{\max(i,j,k)-\min(i,j,k) + 1} + \sum_{i\neq k}\frac{1}{|i-k|+1})\\
-	\end{align*}
-		$\sum_{i\neq k}\frac{1}{|i-k|+1}$ is calculated in Ex5 : $$\sum_{i\neq k}\frac{1}{|i-k|+1}=2(n+1)H_n-4n$$\par
-		Now we calculate the other part :
-	\begin{align*}
-		\sum_{i\neq j, i\neq k, j\neq k}\frac{1}{\max(i,j,k)-\min(i,j,k) + 1} &= 3!\sum_{L=3}^{n}\frac{\binom{1}{n-L+1}\binom{1}{L-2}}{L}\\
-		&= 6\sum_{L=3}^{n}\frac{(n+3)L-L^2-2(n+1)}{L}\\
-		&= 21n+3n^2-12H_n-12nH_n\\
-	\end{align*}
-	where $L$ is $\max(i,j,k)-\min(i,j,k)+1$.\par
-	Then we have :
-	\begin{align*}
-			E[C] &= \frac{21n+3n^2-12H_n-12nH_n+2(n+1)H_n-4n}{n}\\
-			&= 3n-10H_n-\frac{10H_n}{n}+17\\
-	\end{align*}
+As we did in Ex8, let $k$ be the answer for $QUICKSELECT$. Since the input is random, we can assume that every number from $1$ to $n$ is equally likely to be the answer.\par
+So the expected number of comparisons is
+\begin{align*}
+	E[C] &= \frac{1}{n}\sum_{k=1}^{n}E[\sum_{i\neq j, i\neq k, j\neq k}B_{i,j,k}+\sum_{i\neq k}A_{k,i}]\\
+	&= \frac{1}{n}(\sum_{i\neq j, i\neq k, j\neq k}\frac{1}{\max(i,j,k)-\min(i,j,k) + 1} + \sum_{i\neq k}\frac{1}{|i-k|+1})\\
+\end{align*}
+	$\sum_{i\neq k}\frac{1}{|i-k|+1}$ is calculated in Ex5 : $$\sum_{i\neq k}\frac{1}{|i-k|+1}=2(n+1)H_n-4n$$\par
+	Now we calculate the other part :
+\begin{align*}
+	\sum_{i\neq j, i\neq k, j\neq k}\frac{1}{\max(i,j,k)-\min(i,j,k) + 1} &= 3!\sum_{L=3}^{n}\frac{\binom{1}{n-L+1}\binom{1}{L-2}}{L}\\
+	&= 6\sum_{L=3}^{n}\frac{(n+3)L-L^2-2(n+1)}{L}\\
+	&= 21n+3n^2-12H_n-12nH_n\\
+\end{align*}
+where $L$ is $\max(i,j,k)-\min(i,j,k)+1$.\par
+Then we have :
+\begin{align*}
+		E[C] &= \frac{21n+3n^2-12H_n-12nH_n+2(n+1)H_n-4n}{n}\\
+		&= 3n-10H_n-\frac{10H_n}{n}+17\\
+\end{align*}

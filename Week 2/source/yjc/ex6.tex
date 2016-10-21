@@ -7,8 +7,9 @@ Here is an figure about an example of choosing the $7$-th element in the sequenc
 \begin{tikzpicture}
 	[inner sep=1mm,
 	normal/.style={circle,draw=blue!50,fill=blue!20,thick},
-	visit/.style={circle,draw=red!50,fill=red!20,thick}]
-	\node (4) at (0, 0) [visit] {4};
+	visit/.style={circle,draw=red!50,fill=red!20,thick},
+	roots/.style={circle,draw=black!50,fill=black!20,thick}]
+	\node (4) at (0, 0) [roots] {4};
 	\node (2) at (-1.3, -1.3) [normal] {2};
 	\node (5) at (1.3, -1.3) [visit] {5};
 	\node (6) at (2.6, -2.6) [visit] {6};
@@ -24,4 +25,5 @@ Here is an figure about an example of choosing the $7$-th element in the sequenc
 	\draw [-] (6) to (8);
 	\draw [-] (8) to (7);
 \end{tikzpicture}
+\caption{The example figure}
 \end{figure}
