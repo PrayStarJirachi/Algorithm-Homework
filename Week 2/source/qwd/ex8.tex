@@ -1,3 +1,3 @@
-Let $k$ be the answer for $QUICKSELECT(\pi)$. Similar like quicksort tree, quickselect tree is a quicksort tree without the nodes which (1) haven't node $k$ in its subtree or (2) are in the subtree of node $k$.\par
-So, elements $i$($i\neq k$, $i$ is pivot) and $j$($j\neq k$, $j\neq i$) will have a comparasion if and only if in quicksort tree, $i$ is a common ancestor of $k$ and $j$. Elements $i$($i\neq k$) will have a comparasion with $k$ ($k$ is pivot) if and only if in quicksort tree, $k$ is an ancestor of $i$.\par
-Thus, the total number of comparasions is $$C(\pi) = \sum_{i\neq j, i\neq k, j\neq k}B_{i,j,k}+\sum_{i\neq k}A_{k,i}$$ where $k$ is the answer for $QUICKSELECT(\pi)$.
+        Since $A$ is a permutaion of size n, the answer for $QUICKSELECT(\pi=\{A,k\})$ is $k$. Similar like quicksort tree, quickselect tree is a quicksort tree without the nodes which haven't node $k$ in its subtree.\par
+        So, elements $i$($i$ is pivot) and $j$($j\neq i$) will have a comparasion if and only if in quicksort tree, $i$ is a common ancestor of $k$ and $j$.\par
+        Thus, the total number of comparasions is $$C(\pi) = \sum_{i\neq j}B_{i,j,k}$$

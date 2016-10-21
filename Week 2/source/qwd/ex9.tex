@@ -1,19 +1,35 @@
-As we did in Ex8, let $k$ be the answer for $QUICKSELECT$. Since the input is random, we can assume that every number from $1$ to $n$ is equally likely to be the answer.\par
-So the expected number of comparisons is
-\begin{align*}
-	E[C] &= \frac{1}{n}\sum_{k=1}^{n}E[\sum_{i\neq j, i\neq k, j\neq k}B_{i,j,k}+\sum_{i\neq k}A_{k,i}]\\
-	&= \frac{1}{n}(\sum_{i\neq j, i\neq k, j\neq k}\frac{1}{\max(i,j,k)-\min(i,j,k) + 1} + \sum_{i\neq k}\frac{1}{|i-k|+1})\\
-\end{align*}
-	$\sum_{i\neq k}\frac{1}{|i-k|+1}$ is calculated in Ex5 : $$\sum_{i\neq k}\frac{1}{|i-k|+1}=2(n+1)H_n-4n$$\par
-	Now we calculate the other part :
-\begin{align*}
-	\sum_{i\neq j, i\neq k, j\neq k}\frac{1}{\max(i,j,k)-\min(i,j,k) + 1} &= 3!\sum_{L=3}^{n}\frac{\binom{1}{n-L+1}\binom{1}{L-2}}{L}\\
-	&= 6\sum_{L=3}^{n}\frac{(n+3)L-L^2-2(n+1)}{L}\\
-	&= 21n+3n^2-12H_n-12nH_n\\
-\end{align*}
-where $L$ is $\max(i,j,k)-\min(i,j,k)+1$.\par
-Then we have :
-\begin{align*}
-		E[C] &= \frac{21n+3n^2-12H_n-12nH_n+2(n+1)H_n-4n}{n}\\
-		&= 3n-10H_n-\frac{10H_n}{n}+17\\
-\end{align*}
+        We need to calculate the fomula in Ex8 for a random $A$ and a specific $k$. Since $E[B_{i,j,k}]=E[B_{j,i,k}]$, we can assume $i<j$ without loss of generality.
+        \begin{itemize}
+        \item When $k\leq i$ holds:
+        \begin{align*}
+        \sum_{k\leq i<j}E[B_{i,j,k}]&=\sum_{k<j}\frac{\binom{1}{j-k}}{j-k+1}\\
+        &=\sum_{\Delta=1}^{n-k}\frac{\Delta}{\Delta+1}\\
+        &=\sum_{\Delta=1}^{n-k}(1-\frac{1}{\Delta+1})\\
+        &=n-k-H_{n-k+1}+1\\
+        \end{align*}
+        \item When $j\leq k$ holds:
+        \begin{align*}
+        \sum_{i<j\leq k}E[B_{i,j,k}]&=\sum_{i<k}\frac{\binom{1}{k-i}}{k-i+1}\\
+        &=\sum_{\Delta=1}^{k-1}\frac{\Delta}{\Delta+1}\\
+        &=\sum_{\Delta=1}^{k-1}(1-\frac{1}{\Delta+1})\\
+        &=k-H_{k}\\
+        \end{align*}
+        \item When $i<k$ and $k<j$ holds:
+        \begin{align*}
+        \sum_{i<k<j}E[B_{i,j,k}] &= \sum_{i = 1}^{k - 1} \sum_{j = k + 1}^{n} \frac{1}{j - i + 1}\\
+        &= \sum_{i = 1}^{k - 1} \sum_{t = k - i + 2}^{n - i + 1} \frac{1}{t}\\
+        &= \sum_{i = 1}^{k - 1} (\sum_{t = 3}^{n} \frac{1}{t} - \sum_{t = 3}^{k - i + 1} \frac{1}{t} - \sum_{t = n - i + 2}^{n} \frac{1}{t})\\
+        &= \sum_{i = 1}^{k - 1}(H_n - H_2) - \sum_{i = 1}^{k - 1} \sum_{t = 3}^{k - i + 1} \frac{1}{t} - \sum_{i = 1}^{k - 1} \sum_{t = n - i + 2}^{n} \frac{1}{t}\\
+        &= (k - 1)(H_n - H_2) - \sum_{t = 3}^{k} \sum_{i = 1}^{k - t + 1} \frac{1}{t} - \sum_{t = n - k + 3}^{n} \sum_{i = n - t + 2}^{k - 1} \frac{1}{t}\\
+        &= (k - 1)(H_n - H_2) - \sum_{t = 3}^{k} \frac{k - t + 1}{t} - \sum_{t = n - k + 3}^{n} \frac{t + k - n - 2}{t}\\
+        &= (k - 1)(H_n - H_2) - \sum_{t = 3}^{k} (\frac{k + 1}{t} - 1) - \sum_{t = n - k + 3}^{n} (\frac{k - n - 2}{t} + 1)\\
+        &= (k - 1)(H_n - H_2) - (k + 1)\sum_{t = 3}^{k} \frac{1}{t} + (k - 2) - (k - n - 2) \sum_{t = n - k + 3}^{n} \frac{1}{t} - (k - 2)\\
+        &= (k - 1)(H_n - H_2) - (k + 1)(H_k - H_2) - (k - n - 2)(H_n - H_{n - k + 2})\\
+        &= (n + 1)H_n - (k + 1)H_k - (n - k + 2)H_{n - k + 2} + 3
+        \end{align*}
+        \end{itemize}
+        Then we have:
+        \begin{align*}
+        E[C]&=2(n-k-H_{n-k+1}+1+k-H_{k}+(n + 1)H_n - (k + 1)H_k - (n - k + 2)H_{n - k + 2} + 3)\\
+        &=n-(n-k+3)H_{n-k+1}+(n+1)H_n-(k+2)H_{k}+3\\
+        \end{align*}
