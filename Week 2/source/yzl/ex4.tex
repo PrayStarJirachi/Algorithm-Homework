@@ -1,6 +1,6 @@
-Consider constructing this special sequence by Recursive Process. Let $n = 2^d$, We define $F(d)$ is a process which can give us a acceptable sequence which length is $2^d$. when $d$ equals to zero seems trivial, just return the only one element. when $d > 0$, consider making the number of comparisons as much as possible, after sorting this sequence, we split the sequences in two parts. choose the index of 1, 3, 5, .. $2^d-1$ into one part, while the index of 2, 4, 6 .. $2^d$ into another part. then put these two parts into $F(d - 1)$ individually. After that, merge these two new parts(one part is first, then another part), thus we get the sequence which $F(d)$ need.
+Consider constructing this special sequence by Recursive Process. Let $n = 2^d$, We define $F(d)$ is a process which can give us a acceptable sequence whose length is $2^d$. when $d$ equals to zero seems trivial, just return the only one element. when $d > 0$, consider making the number of comparisons as much as possible, after sorting this sequence, we split the sequences in two parts. choose the index of 1, 3, 5, .. $2^d-1$ into one part, while the index of 2, 4, 6 .. $2^d$ into another part. then put these two parts into $F(d - 1)$ individually. After that, merge these two new parts(one part is first, then another part), thus we get the sequence which $F(d)$ need.
 
-Now, we prove the total comparison of sequence which $F(d)$ provides is $n\log n - n + 1$, consider prove by induction.
+Now, we prove the total comparison of sequence constructed by $F(d)$ is $n\log n - n + 1$ by induction.
 
 \begin{proof}
 the total comparison of sequence which $F(d)$ provides is $n\log n - n + 1$.
