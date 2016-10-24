@@ -1,3 +1,14 @@
-        Since $A$ is a permutaion of size n, the answer for $QUICKSELECT(\pi=\{A,k\})$ is $k$. Similar like quicksort tree, quickselect tree is a quicksort tree without the nodes which haven't node $k$ in its subtree.\par
-        So, elements $i$($i$ is pivot) and $j$($j\neq i$) will have a comparasion if and only if in quicksort tree, $i$ is a common ancestor of $k$ and $j$.\par
-        Thus, the total number of comparasions is $$C(\pi) = \sum_{i\neq j}B_{i,j,k}$$
+Considering we get an exact sequence and wanting to select the $k$-th element, we want to calculate the exact number of comparisons. An obvirus notice is that the number of comparisons equals to the total number of comparisons of every node. Another notice is that every node is only compared by its \textbf{vaild} ancestor. 
+	
+\noindent Here $x$ is a \textbf{vaild} ancestor of $y$ iff:
+\begin{itemize}
+	\item $x$ is an ancestor of $y$;
+	\item $x$ is visited in the procedure QUICKSELECT.
+\end{itemize}
+\noindent Hence, the number of comparisons of node $i$ is just the number of its \textbf{vaild} ancestors. And $j$ is a \textbf{vaild} ancestor of $i$ iff $j$ is the common ancestor of $i$ and $k$.
+\noindent Hence, the comparsions of node $i$ is
+\[\sum_{j = 1}^{n} B_{j, i, k}\]
+\noindent And the total number of comparisons is that
+\[\sum_{i = 1}^{n} \sum_{j = 1}^{n} B_{j, i, k}\]
+\noindent However, in the implementation code in the problem, if $A$ has only one element, we don't have to make any comparsion. Hence, if $k$ is a leaf, we should fix our answer and actually if $k$ is a leaf, we should divide the comparisons by one. And thus the expected comparisons is that
+\[\sum_{i = 1}^{n} \sum_{j = 1}^{n} B_{j, i, k} - \mathbb{E}[k\text{~is~a~leaf}]\]
