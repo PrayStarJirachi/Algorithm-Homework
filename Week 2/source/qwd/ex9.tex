@@ -1,35 +1,76 @@
-        We need to calculate the fomula in Ex8 for a random $A$ and a specific $k$. Since $E[B_{i,j,k}]=E[B_{j,i,k}]$, we can assume $i<j$ without loss of generality.
+        We need to calculate the fomula in Ex8 for a random $A$ and a specific $k$. 
+		
+		\begin{align*}
+			\mathbb{E}[C]&= \sum_{i = 1}^{n}\sum_{j = 1}^{n} \mathbb{E}[B_{i,j,k}] - \mathbb{E}[k\text{~is~a~leaf}]\\
+				&= \sum_{i \neq j} \mathbb{E}[B_{i,j,k}] + \sum_{i = 1}^{n} \mathbb{E}[B_{i,i,k}] - \mathbb{E}[k\text{~is~a~leaf}]\\
+				&= 2\sum_{1 \leq i < j \leq n} \mathbb{E}[B_{i,j,k}] + \sum_{i = 1}^{n} \mathbb{E}[A_{i,k}] - \mathbb{E}[k\text{~is~a~leaf}]
+		\end{align*}
+		
+		Firstly, we calculate$\displaystyle \sum_{1 \leq i < j \leq n} \mathbb{E}[B_{i,j,k}]$
         \begin{itemize}
         \item When $k\leq i$ holds:
         \begin{align*}
-        \sum_{k\leq i<j}E[B_{i,j,k}]&=\sum_{k<j}\frac{\binom{1}{j-k}}{j-k+1}\\
+        \sum_{k\leq i<j}\mathbb{E}[B_{i,j,k}]&=\sum_{k<j}\frac{\binom{1}{j-k}}{j-k+1}\\
         &=\sum_{\Delta=1}^{n-k}\frac{\Delta}{\Delta+1}\\
         &=\sum_{\Delta=1}^{n-k}(1-\frac{1}{\Delta+1})\\
-        &=n-k-H_{n-k+1}+1\\
+        &=n-k-H_{n-k+1}+1
         \end{align*}
         \item When $j\leq k$ holds:
         \begin{align*}
-        \sum_{i<j\leq k}E[B_{i,j,k}]&=\sum_{i<k}\frac{\binom{1}{k-i}}{k-i+1}\\
+        \sum_{i<j\leq k}\mathbb{E}[B_{i,j,k}]&=\sum_{i<k}\frac{\binom{1}{k-i}}{k-i+1}\\
         &=\sum_{\Delta=1}^{k-1}\frac{\Delta}{\Delta+1}\\
         &=\sum_{\Delta=1}^{k-1}(1-\frac{1}{\Delta+1})\\
-        &=k-H_{k}\\
+        &=k-H_{k}
         \end{align*}
         \item When $i<k$ and $k<j$ holds:
         \begin{align*}
-        \sum_{i<k<j}E[B_{i,j,k}] &= \sum_{i = 1}^{k - 1} \sum_{j = k + 1}^{n} \frac{1}{j - i + 1}\\
+        \sum_{i<k<j}\mathbb{E}[B_{i,j,k}] &= \sum_{i = 1}^{k - 1} \sum_{j = k + 1}^{n} \frac{1}{j - i + 1}\\
         &= \sum_{i = 1}^{k - 1} \sum_{t = k - i + 2}^{n - i + 1} \frac{1}{t}\\
         &= \sum_{i = 1}^{k - 1} (\sum_{t = 3}^{n} \frac{1}{t} - \sum_{t = 3}^{k - i + 1} \frac{1}{t} - \sum_{t = n - i + 2}^{n} \frac{1}{t})\\
         &= \sum_{i = 1}^{k - 1}(H_n - H_2) - \sum_{i = 1}^{k - 1} \sum_{t = 3}^{k - i + 1} \frac{1}{t} - \sum_{i = 1}^{k - 1} \sum_{t = n - i + 2}^{n} \frac{1}{t}\\
         &= (k - 1)(H_n - H_2) - \sum_{t = 3}^{k} \sum_{i = 1}^{k - t + 1} \frac{1}{t} - \sum_{t = n - k + 3}^{n} \sum_{i = n - t + 2}^{k - 1} \frac{1}{t}\\
         &= (k - 1)(H_n - H_2) - \sum_{t = 3}^{k} \frac{k - t + 1}{t} - \sum_{t = n - k + 3}^{n} \frac{t + k - n - 2}{t}\\
         &= (k - 1)(H_n - H_2) - \sum_{t = 3}^{k} (\frac{k + 1}{t} - 1) - \sum_{t = n - k + 3}^{n} (\frac{k - n - 2}{t} + 1)\\
-        &= (k - 1)(H_n - H_2) - (k + 1)\sum_{t = 3}^{k} \frac{1}{t} + (k - 2) - (k - n - 2) \sum_{t = n - k + 3}^{n} \frac{1}{t} - (k - 2)\\
+        &= (k - 1)(H_n - H_2) - (k + 1)\sum_{t = 3}^{k} \frac{1}{t} + (k - 2) \\
+		&~~~-(k - n - 2) \sum_{t = n - k + 3}^{n} \frac{1}{t} - (k - 2)\\
         &= (k - 1)(H_n - H_2) - (k + 1)(H_k - H_2) - (k - n - 2)(H_n - H_{n - k + 2})\\
         &= (n + 1)H_n - (k + 1)H_k - (n - k + 2)H_{n - k + 2} + 3
         \end{align*}
         \end{itemize}
         Then we have:
         \begin{align*}
-        E[C]&=2(n-k-H_{n-k+1}+1+k-H_{k}+(n + 1)H_n - (k + 1)H_k - (n - k + 2)H_{n - k + 2} + 3)\\
-        &=2n-2(n-k+3)H_{n-k+1}+2(n+1)H_n-2(k+2)H_{k}+6\\
+        \sum_{1 \leq i < j \leq n} \mathbb{E}[B_{i,j,k}]&=\sum_{k\leq i<j}\mathbb{E}[B_{i,j,k}] + \sum_{i<j\leq k}\mathbb{E}[B_{i,j,k}] + \sum_{i<k<j}\mathbb{E}[B_{i,j,k}]\\
+			&=n-k-H_{n-k+1}+1+k-H_{k}+(n + 1)H_n - (k + 1)H_k\\
+			&~~~- (n - k + 2)H_{n - k + 2} + 3\\
+			&=n-(n-k+3)H_{n-k+1}+(n+1)H_n-(k+2)H_{k}+3
         \end{align*}
+		
+		Secondly, we calculate $\displaystyle \sum_{i = 1}^{n} \mathbb{E}[A_{i,k}]$
+		 \begin{align*}
+			\sum_{i = 1}^{n} \mathbb{E}[A_{i,k}] &= \sum_{i = 1}^{n} \frac{1}{|i - k| + 1}\\
+										&= \sum_{i = 1}^{k} \frac{1}{k - i + 1} + \sum_{i = k + 1}^{n} \frac{1}{i - k + 1}\\
+										&= \sum_{t = 1}^{k} \frac{1}{t} + \sum_{t = 2}^{n - k + 1} \frac{1}{t}\\
+										&= H_k + H_{n - k + 1} - 1
+		 \end{align*}
+		 
+		 Thirdly, we calculate $\displaystyle \mathbb{E}[k\text{~is~a~leaf}]$
+		 $k$ is a leaf if and only if $k - 1$ and $k + 1$(if they exist) occur before k. So
+		 \[
+			\mathbb{E}[k\text{~is~a~leaf}] = 
+			\begin{cases}
+				1 & n = 1,\\
+				\frac{1}{2} &n \neq 1~\text{and}~(k = 1 or k = n),\\
+				\frac{1}{3} &n \neq 1~\text{and}~1 < k < n.
+			\end{cases}
+		 \]
+		 Totally, we get
+		 \begin{align*}
+			\mathbb{E}[C]	&= 2\sum_{1 \leq i < j \leq n} \mathbb{E}[B_{i,j,k}] + \sum_{i = 1}^{n} \mathbb{E}[A_{i,k}] - \mathbb{E}[k\text{~is~a~leaf}]\\
+							&= 2(n-(n-k+3)H_{n-k+1}+(n+1)H_n-(k+2)H_{k}+3) + H_k + H_{n - k + 1} - 1 + \mathbb{E}[k\text{~is~a~leaf}]\\
+							&=
+							\begin{cases}
+								0 & n = 1,\\
+								2n + 2(n + 1)H_n - (2n - 2k + 5)H_{n - k + 1} - (2k + 3)H_k + 5 - \frac{1}{2} &n \neq 1~\text{and}~(k = 1 or k = n),\\
+								2n + 2(n + 1)H_n - (2n - 2k + 5)H_{n - k + 1} - (2k + 3)H_k + 5 - \frac{1}{3} &n \neq 1~\text{and}~1 < k < n.
+							\end{cases}
+		\end{align*}
