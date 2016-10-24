@@ -1,14 +1,13 @@
 \begin{itemize}
-	\item First, we divide the elements of $A$ into $n/2$ pairs.
-	\item Second, we make a comparison in each pair. Put the bigger one into array $B$, and put the smaller one into array $C$ 
-	(If the two elements are equal, put one of them into $B$, and the other into $C$).
+	\item First, we divide the elements of $A$ into $n/2$ pairs and make a comparison in each pair. Put the bigger one into array $B$, the smaller one into array $C$ 
+	(If the two elements are equal, put any of them into $B$, and the other into $C$).
 
 	It is obvious that the maximum is in $B$, and the minimum is in $C$.
 	
 	In this step, we get two arrays of size $n/2 - 1$ by $n/2$ comparisons.	
-	\item Third, find the maximum in $B$ ($n/2 - 1$ comparisons) and the mimimum in $C$ ($n/2$ comparisons).
+	\item Second, find the maximum in $B$ ($n/2 - 1$ comparisons) and the mimimum in $C$ ($n/2 - 1$ comparisons).
 	
 	these two elements are the maximum and minimum in $A$.
 \end{itemize}
 
-In all, the total number of comparisons is $N = n/2 + n / 2 - 1 + n / 2 - 1 = \frac{3}{2}n - 2$
+In all, the total number of comparisons is $N = (n / 2) + 2 * (n / 2 - 1) = \frac{3}{2}n - 2$
