@@ -2,7 +2,7 @@
 
 \usepackage{graphicx,amsmath,amssymb,amsthm, boxedminipage, bm}
 \usepackage{float}
-\usepackage[body={14.64cm, 24.62cm}, centering, dvipdfm]{geometry}
+\usepackage[body={17cm, 24.62cm}, centering, dvipdfm]{geometry}
 
 \newtheorem{theorem}{Theorem}%[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -42,6 +42,7 @@
 \usepackage{indentfirst}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{diagbox}
 \usepackage[colorlinks]{hyperref}
 \usepackage[short,nodayofweek,level,24hr]{datetime}
 
@@ -60,9 +61,7 @@
 \renewcommand{\theFancyVerbLine}{\rmfamily\scriptsize\arabic{FancyVerbLine}}
 \newcommand{\cppcode}[1]{
     \inputminted[mathescape,
-    			 tabize=2,
-    			 linenos,
-    			 frame=single,
+    			 tabsize=4,
     			 framesep=2mm,
     			 breakaftergroup=true,
     			 breakautoindent=true,
