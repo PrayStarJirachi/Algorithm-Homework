@@ -1,0 +1,11 @@
+\begin{proof}
+	Because $X \cup \{e\}$ is good, there exists a minimum spanning tree $T$ of $G$ such that $X \cup \{e\}~\subseteq~E(T)$.
+	In this spanning tree $T$, $\{e\}$ connects two components, denoted by $S, V \setminus S$. \\
+	Consider the cut of G: $S, V \setminus S$.
+	\begin{enumerate}[(i)]
+		\item Obviously, for each edge $e(u,v)$ in $X$, either $u,v~\in~S$ holds or $u,v~\in~V\setminus S$ holds; that is to say it can't crosss the cut.
+		\item If $e$ is't a minimum weight edge of $G$ crossing this cut; that is to say, there exist a smaller edge crossing $G$, denoted by $e'$.\\
+			Then $T\setminus\{e\} \cup \{e'\}$ forms a smaller spanning tree, which contradicts the condition that $T$ is the minimum spanning tree.\\
+			So $e$ is a minimum weight edge of $G$ crossing this cut.
+	\end{enumerate}
+\end{proof}
