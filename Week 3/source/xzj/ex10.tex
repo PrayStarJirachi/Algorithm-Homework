@@ -1,0 +1,12 @@
+The two parts of the graph are independent, so we only need to caltulate the minimal spanning tree of the two parts respectively.
+\begin{itemize}
+	\item Left part:\par
+		If we don't choose any of the parallel edges(containing three edges), we need to choose the other two edges.(1 choice).\par
+		If we choose one of the parallel edges(3 choices), we only need to choose one edge from the other two edges(2 choices).\par
+		In summary, we have $1 + 3 * 2 = 7$ minimal spanning trees in the left part.
+	\item Right part:\par
+		Using the similar method, the right part have $1 + 2 * 3 = 7$ minimal spanning trees in the right part.
+	\item Combining two parts:\par
+		Using Multiplication rule, we can get the total amount of the minimal spanning forests: $Num = 7 * 7 = 49$
+\end {itemize}
+We also justify the answer by programming(enumerating every set of the edges, and check if it can form a minimal spanning forest)

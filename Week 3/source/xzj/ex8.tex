@@ -1,0 +1,10 @@
+Suppose that there are two different minimum spanning tree, called $T,T'$.\par
+
+We can find the edge which belongs to only one of the minimum spanning tree and its weight is minimal.
+Because no two edges of $G$ have the same weight, the above edge is unique, denoted as $e$.
+(Without loss of generality, let $e$ belong to $T$)\par
+
+By Lemma 3, we known that \[m_{c_e}\{T\} = m_{c_e}\{T'\}~\text{and}~m_{c_e - 1}\{T\} = m_{c_e - 1}\{T'\}\]
+So \[m_{c_e}\{T\} -  m_{c_e - 1}\{T\} = m_{c_e}\{T'\} - m_{c_e - 1}\{T'\}\]
+However, $e$ belongs to only $T$, in other word \[m_{c_e}\{T\} -  m_{c_e - 1}\{T\} = 1~\text{and}~ m_{c_e}\{T'\} - m_{c_e - 1}\{T'\} = 0\] which contradicts the equation above.\par
+So, the suppose is wrong; that is to say $G$ has only one minimum spanning tree.
