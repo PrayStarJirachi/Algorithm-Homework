@@ -1,0 +1,14 @@
+	\section{Ex.11}
+		Similar like Kruskal, we sort all the edges by their weight $w(e)$, then we process all the edges with the same weight in increasing order. We repeat the following works until all the edges have been processed.
+		\begin{itemize}
+			\item Define the smallest unprocessed edge weight as $c$. Label all the edges with $w(e)=c$ as processed.
+			\item Use the given algorithm to caculate the number of spanning forests $N_c$ for a subgraph $g=(V,\{e\in E,w(e)=c\})$.
+			\item According to Lemma.3, the connected components of a subgraph $G_c=(V,{e\in E,w(e)\leq c})$ are the same in spanning tree $T_c$. We can arbitrarily pick a spanning forest of $g$ and combine all the nodes in the same connected component into one node.\\
+			More specificly, we define a function: $$f(u)=u'$$ where $u'$ is the node which has the smallest index in connected component containing $u$.\\ Then we modify $G$ into $G'$:
+			\begin{align*}
+				G'=(&\{v\in V,f(v)=v\},\\
+				&\{e'=(u',v',w')|e=(u,v,w)\in E,w'=w,u'=f(u),v'=f(v),u'\neq v'\})
+			\end{align*}
+		\end{itemize}
+		Finally, we get the number of spanning trees of a weighted tree:
+		$$N=\prod N_c$$
