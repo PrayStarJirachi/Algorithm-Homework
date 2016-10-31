@@ -1,0 +1,8 @@
+Consider $T$ itself is a subgraph of $G$, so the only case is: there exists $u, v \in V$ such that $u, v$ are not connected in $T_c$, but are connected in $G_c$. Because the $u, v$ are not connected in $T_c$, so there must be a edge $e_1$ which $w(e_1) > c$ on the path from $u$ to $v$ in $T$. This edge $e_1$ will link two components of $T$ together, let's call them $T_{1}$ and $T_{2}$.
+
+\begin{proof}
+There must exists a edge $e_2 = (x, y)$ in $G_{c}$ which $x$ is belong to $T_{1}$ and $y$ is belong to $T_{2}$.
+Consider $u, v$ are connected in $G_{c}$, so there must exist a edge which can combine these two components together, otherwise $u, v$ will in two different components, and be isolated.
+
+So, after adding this edge $e_2$ into $T$, there must form a circle in $T$. According the Cut Lemma, this edges can replace $e_1$ (for $w(e_2) \leq c < w(e_1)$), so $T$ is not the Minimum Spanning Tree of $G$, which is a contradictory. so the Lemma 3 is correct. 
+\end{proof}
