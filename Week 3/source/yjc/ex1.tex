@@ -2,7 +2,7 @@
 Let $X \subseteq E$ be a good set. If $(V, X)$ is not a spanning tree, then $(V, X)$ consists of two or more connected components. Let $V = S \cup \overline{S}$ be a cut of $X$. That is, no edge of $X$ goes from $S$ to $\overline{S}$. Let $e \in E$ be an edge of minimum cost connecting two connecting components of $(V, X)$. Then $X \cup \{e\}$ is good, too.
 \end{lemma}
 \begin{proof}
-Suppose the $X \cup \{e\}$ is not a good set. Then all the spanning trees exclude the minimum edge which connects two connecting components of $(V, X)$. Denote these two connecting components as $C_1$ and $C_2$. Pick up one of the minimum spanning trees $T_m$ and substitute the edge $e_t \in E(T_m)$ connecting $C_1$ and $C_2$ to $e_m$.
+Suppose the $X \cup \{e\}$ is not a good set. Then all of the minimum spanning trees exclude the minimum edge which connects the two connecting components of $(V, X)$. Denote these two connecting components as $C_1$ and $C_2$. According to the property of spanning tree, for each minimum spanning tree $T_m$, there is exactly one edge connecting $C_1$ and $C_2$ which we denote as $e_t\in E(T_m)$. Substitute $e_t$ to $e_m$ and obvirusly the new spanning tree is still a spanning tree $T'_m$. And using the following argumentation, we get a smaller spanning tree.
 \begin{figure}[H]
 	\centering
 	\subfigure[Original minimum spanning tree]{
@@ -65,7 +65,7 @@ inner sep=0pt,minimum size=40pt},
 	}
 	\caption{The illustration of the proof}
 \end{figure}
-Then the ``costs'' of the new spanning tree $T'_m$ is:
+The ``costs'' of the new spanning tree $T'_m$ is:
 \[c(T'_m) = \sum_{e \in E(T')}c(e) = c(T_m) - c(e_t) + c(e_m)\]
 Using the condition $e_m$ is the minimum edge connecting $C_1$ and $C_2$, we can easily know that:
 \[c(e_m) \leq c(e_t)\]
