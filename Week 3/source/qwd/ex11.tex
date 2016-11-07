@@ -1,13 +1,18 @@
-Similar like Kruskal, we sort all the edges by their weight $w(e)$, then we process all the edges with the same weight in increasing order. We repeat the following works until all the edges have been processed.
-\begin{itemize}
-	\item Define the smallest unprocessed edge weight as $c$. Label all the edges with $w(e)=c$ as processed.
-	\item Use the given algorithm to caculate the number of spanning forests $N_c$ for a subgraph $g=(V,\{e\in E,w(e)=c\})$.
-	\item According to Lemma.3, the connected components of a subgraph $G_c=(V,{e\in E,w(e)\leq c})$ are the same in spanning tree $T_c$. We can arbitrarily pick a spanning forest of $g$ and combine all the nodes in the same connected component into one node.\\
-	More specificly, we define a function: $$f(u)=u'$$ where $u'$ is the node which has the smallest index in connected component containing $u$.\\ Then we modify $G$ into $G'$:
-	\begin{align*}
+	\section{Ex.11}
+	Similar like Kruskal, we sort all the edges by their weight $w(e)$, then we process all the edges with the same weight in increasing order. We repeat the following works until all the edges have been processed.
+	\begin{itemize}
+		\item Define the smallest unprocessed edge weight as $c$. Label all the edges with $w(e)=c$ as processed.
+		\item Use the given algorithm to caculate the number of spanning forests $N_c$ for a subgraph $g=(V,\{e\in E,w(e)=c\})$.
+		\item According to Lemma.3, the connected components of a subgraph $G_c=(V,{e\in E,w(e)\leq c})$ are the same in spanning tree $T_c$. We can arbitrarily pick a spanning forest of $g$ and combine all the nodes in the same connected component into one node.\\
+		More specificly, we define a function: $$f(u)=u'$$ where $u'$ is the node which has the smallest index in connected component containing $u$.\\ Then we modify $G$ into $G'$:
+		\begin{align*}
 		G'=(&\{v\in V,f(v)=v\},\\
 		&\{e'=(u',v',w')|e=(u,v,w)\in E,w'=w,u'=f(u),v'=f(v),u'\neq v'\})
-	\end{align*}
-\end{itemize}
-Finally, we get the number of spanning trees of a weighted tree:
-$$N=\prod N_c$$
+		\end{align*}
+	\end{itemize}
+	We call a combination of the spanning forests we picked in every step a solution. Finally, we get the number of solutions, as well as the number of minimum spanning trees(MST) of a weighted tree:
+	$$N=\prod N_c$$
+	Now we are going to show the correctness of the equality between the number of solutions and the number of MST.\par
+	Since the algorithm without counting works the same as Kruskal, every solution will be an MST.\par
+	Also, it's easy to see that the edges never disappear or created, so there is a bijection between the edges in the graph we compressed step by step and the edges in the orignal graph all the time. Then, for the edges with the same weight $c$ in a specific MST, we can find the step when it would be processed. Since the spanning forest we picked is arbitrary, we can choose the spanning forest which has excatly these edges we want. According to Lemma.3, those edges will always form a spanning forest with the same connected components, despite the choose of the MST. So every spanning tree is actually the same as one of the solutions.\par
+	Finally, we get a bijection between $N$ solutions and all of the MST. Then the equality between the number of them holds.
