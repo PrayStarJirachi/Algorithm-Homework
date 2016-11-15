@@ -129,6 +129,7 @@ _minted*
 *.sagetex.scmd
 
 # sympy
+
 *.sout
 *.sympy
 sympy-plots-for-*.tex/
@@ -178,3 +179,5 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+
+makefile

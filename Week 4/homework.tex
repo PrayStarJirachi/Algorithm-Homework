@@ -1,0 +1,124 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{graphicx,amsmath,amssymb,amsthm, boxedminipage, bm}
+\usepackage{float}
+\usepackage[body={14.64cm, 24.62cm}, centering, dvipdfm]{geometry}
+
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\scalar}[2]{\ensuremath{\langle #1, #2\rangle}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\norm}[1]{\|#1\|}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\nth}[1]{#1^{\textsuperscript{th}}}
+
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+%\newcounter{exercise}
+%\newcommand{\exercise}{\addtocounter{exercise}{1}\noindent\textbf{Exercise \arabic{section}.\arabic{exercise}. }}
+\newcommand{\exercise}[1]{\noindent\textbf{Exercise \arabic{section}.#1.}}
+
+
+\usepackage{bm}
+\usepackage{longtable}
+\usepackage{harpoon}
+\usepackage{fontspec}
+\usepackage{listings}
+\usepackage{setspace}
+\usepackage{cmap}
+\usepackage{cite}
+\usepackage{float}
+\usepackage{xeCJK}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{indentfirst}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{diagbox}
+\usepackage[colorlinks]{hyperref}
+\usepackage[short,nodayofweek,level,24hr]{datetime}
+
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+\usepackage[cache=false]{minted}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\allowdisplaybreaks
+
+%\setlength{\parindent}{0em}
+%\setlength{\mathindent}{0pt}
+\algnewcommand\AND{\textbf{and~}}
+\algnewcommand\OR{\textbf{or~}}
+\newfontfamily\Courier{Courier New}
+\renewcommand{\theFancyVerbLine}{\rmfamily\scriptsize\arabic{FancyVerbLine}}
+\newcommand{\cppcode}[1]{
+    \inputminted[mathescape,
+    			 tabsize=4,
+    			 framesep=2mm,
+    			 breakaftergroup=true,
+    			 breakautoindent=true,
+    			 breakbytoken=true,
+    			 breaklines=true,
+    			 fontsize=\small
+    ]{cpp}{#1}
+}
+\newcommand{\javacode}[1]{
+    \inputminted[mathescape,
+    			 tabsize=2,
+    			 linenos,
+    			 frame=single,
+    			 framesep=2mm,
+    			 breakaftergroup=true,
+    			 breakautoindent=true,
+    			 breakbytoken=true,
+    			 breaklines=true,
+    			 fontsize=\small
+    ]{java}{#1}
+}
+\newcommand{\pythoncode}[1]{
+    \inputminted[mathescape,
+    			 tabsize=4,
+    			 breakaftergroup=true,
+    			 breakautoindent=tue,
+    			 breakbytoken=true,
+    			 breaklines=true,
+    			 fontsize=\small
+    ]{python}{#1}
+}
+\newcommand{\vimcode}[1]{
+    \inputminted[mathescape,
+    			 tabsize=4,
+    			 framesep=2mm,
+    			 breakaftergroup=true,
+    			 breakautoindent=true,
+    			 breakbytoken=true,
+    			 breaklines=true
+    			 fontsize=\small
+    ]{vim}{#1}
+}
+\setcounter{section}{3}
+\begin{document}
+	\title{CS217 - Algorithm Design and Analyis\\Homework Assignment 4}
+	\author{
+		\begin{tabular}{rl}
+		    \textbf{Group Name:\,\,\,\,\,\,\,\,\,\,}& Static\\
+		    \textbf{Group Members: }& Zhenjia Xu, JiaCheng Yang\\
+			& Zhuolin Yang, Wenda Qiu
+		\end{tabular}
+	}
+	\date{\today}
+	\maketitle
+	\section{Network Flows, Matchings, and Paths}
+	\exercise{1}
+\end{document}
