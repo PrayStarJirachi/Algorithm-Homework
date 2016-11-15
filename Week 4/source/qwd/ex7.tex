@@ -1,0 +1,10 @@
+	\section{Ex.7}
+		\subsection{Example}
+			\begin{figure}[H]
+				\centering\includegraphics[width=2in]{source/qwd/qc.eps}
+			\end{figure}
+			The picture shows an graph without a feasible orientation. If we ignore the node in the right-bottom corner, the subgraph will has 4 nodes, 5 edges and every node has a $c(i)=1$. According to the pigeonhole principle, there will be a node has an in-dgree greater than $1$, thus the feasible orientation doesn't exsist.
+		\subsection{Witness}
+			If a graph doesn't has a feasible orientation, then there exists a subgraph(witness), $e\subseteq E,v=\{u|\{u,x\}\in e$ or $\{x,u\}\in e, x,u\in V\}$, where $|E|>\sum_{u\in v}c(u)$.
+		\subsection{Prove}
+			We have already reduced the orientation problem into a maximum mathcing in Ex.6. So we can translate the miximum mathcing witness into feasible orientation one: some set $X\subseteq U$ is an edge set $e\subseteq E$, $\tau (X)$ is the sum of $c(i)$, where node $i$ is involved in $e$: $\{i, x\}\in e$ or $\{x, i\} \in e$. So the witness we described above is also the witness of maximum matching witness in the reduced problem.
