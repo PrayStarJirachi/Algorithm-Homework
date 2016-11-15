@@ -1,0 +1,4 @@
+The problem can be easily proved by Max-flow min-cut theorem.
+\begin{proof}
+  If there is a flow from $s$ to $r$ of value $k$, then the minimum cut between $s$ and $r$ must be greater or equal to $k$(the maximum flow must be greater or equal to $k$). Similarly, the minimum cut between $r$ to $t$ must be greater or equal to $k$. Assume we found a cut between $s$ and $t$ which were less than $k$, then after we removed the edges in the cut, $s$ and $r$ would still be connected(otherwise we get a cut whose value is less than $k$). Similary, $r$ and $t$ is still connected. Hence $s$ and $t$ is connected, which contradicts to the assumption that there were a cut from $s$ to $t$ whose value is less than $k$. Thus the maximum flow from $s$ to $t$ is greater or equal to $k$, which means there is a flow from $s$ to $t$ of value $k$.
+\end{proof}
