@@ -1,0 +1,21 @@
+First of all, we have a basic equivalence: $|V_1| \times d_1 = |V_2| \times d_2$. \par
+For convenience, we can assume $|V_1| \leq |V_2|$, what we need to do is proving there exists a matching of size $|V_1|$.\par
+
+Consider solving it by using Hall's theorem: After choosing $i$ vertexes from $V_1$ arbitrary, there are $k$ vertexes from $V_2$ which are connected directly, we need to show $k \leq i$.\par
+
+The size of the rest part of $V_2$ equals to $|V_2| - k$, and each of them has $d_2$ degrees which have not been used.
+thus, we have:
+
+\[d_2 \times (|V_2|-k) + i \times d_1 \leq |V_1| \times d_1\]
+
+Transforming this equivalence by using $|V_1| \times d_1 = |V_2| \times d_2$:
+
+\[i \times d_1 \leq k \times d_2\]
+
+thus, we have $k \geq i \times \frac{d_1}{d_2}$.
+
+Because we have $|V_1| \leq |V_2|$, according to basic equivalence: $|V_1| \times d_1 = |V_2| \times d_2$, we can get $d_1 \geq d_2$, which equals to $\frac{d_1}{d_2} \geq 1$, so we finally have :
+
+\[k \geq i \times \frac{d_1}{d_2} \geq i\]
+
+By Hall's theorem, there's a matching of size $|V_1| = min(|V_1|, |V_2|)$.
