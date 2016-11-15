@@ -1,0 +1,11 @@
+First, we can make Team 1 to win all $\sum_{i=2}^{n}m_{1,i}$ matches and recalculating the scores. what we still have to do is determining the results of other competitions and making Team 1 become the unique winner.
+
+We use flow algorithm to solve this problem, first we create two extra vertexes $S$ and $T$.
+
+ Because all matches Team 1 attends was \textbf{over}, we do not need to consider Team 1. For each pair of two other teams $i$ and $j$, if there are $m_{i, j}$ matches between them, we build a edge from $S$ to $(i, j)$ \emph{(pair of $i$, $j$)}, whose capacity is $m_{i, j}$. then we build two edges which from $(i, j)$ to $i$ and $j$, whose capacity is $\infty$. These edges are built by considering each match will increase the score of $i$ or $j$ by 1.
+
+Then, each teams except Team 1, links a edge to $T$. The capacity of edge $i \rightarrow T$ is $K - 1 - s_i$, which $K$ is the maximum possible score of Team 1, $s_i$ is the current score of Team $i$. In case of $s_i \geq K$, Team 1 will never be the unique winner.
+
+After working flow algorithm on this graph, we can get the maximum flow $F$. if $F$ equals to the total number of the rest matches, we can construct a plan to judge every undetermined matches by observing the flow from $(i, j)$ to $i$ and $j$, otherwise there must exist a team which can get the score $s_i \geq K$, Team 1 will never be the unique winner.
+
+Since there are many polynomial-time algorithm for dealing with Maximum-flow Problem, the solution is acceptable.
