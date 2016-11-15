@@ -1,0 +1,18 @@
+We will construct a network graph and use the Max-flow min-cut theorem to show the (i) and (ii).
+\begin{proof}
+  Considering a network graph:
+  \begin{enumerate}
+    \item Connect every nodes in $L_k$ to $L_{k + 1}(k + 1 \leq n - i)$ with capacity $\infty$.
+    \item Connect source to every node in $L_i$ with capacity $\infty$.
+    \item Connect every nodes in $L_{n - i}$ to sink with capacity $\infty$.
+  \end{enumerate}
+  Then we empow each node except the source and the sink with \textsf{vertex capacity} 1. We will show that the minimum cut of this network graph must be of value $|L_i| = |L_{n - i}|$.
+
+  Assume the number of paths from the source to the sink is $p$. Then if we remove a node in $L_k$, according to the symmetry of the graph(each node in $L_i$ plays equal roles in the graph), the number of paths from the source to the sink will decrease by $p / \binom{n}{k}$. If we cut the nodes $v_1, v_2, v_3, ..., v_s$ and $v_j \in L_{b_j}$, then we can decrease the paths by
+  \[\min\left\{p, \sum_{j = 1}^{s} \dfrac{p}{|L_{b_j}|}\right\} \leq \min\left\{p, \sum_{j = 1}^s \dfrac{p}{|L_i|}\right\} = \min\left\{p, \dfrac{sp}{|L_i|}\right\}\]
+  In other words, if we cut $s$ nodes, we can at most decrease the paths by $\min\left\{p, sp/|L_i|\right\}$. And if $v_j \in L_i$ for every $j \in \{1, 2, ..., s\}$, then the equal sign established. Considering the cut of this graph can be exactly vertex, we can easily know that the minimum cut of this graph is minimum $s$ satisfying
+  \[\dfrac{sp}{|L_i|} \geq p\]
+  Hence the minimum cut of this graph is exactly $|L_i|$.
+
+  Hence, we know that the maximum flow of this graph is $|L_i|$, which means that there are $|L_i|$ disjoint paths(the vertex capacity being one meets the the disjoint properties).
+\end{proof}
