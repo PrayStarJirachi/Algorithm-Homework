@@ -1,10 +1,10 @@
 \par\noindent\textbf{Necessity.}\par
-Obvirusly if $y \in \{0, 1\}$ and the set $C := \{u \in V \mid y_u = 1\}$ is a minimal vertex cover, then $y$ is a feasible solution(every edge is covered by a node, namely $\forall (u, v) \in E, y_u + y_v \geq 1$). To show the solution is a basic solution, we firstly show that the following lemma is true.
+Obviously if $y \in \{0, 1\}$ and the set $C := \{u \in V \mid y_u = 1\}$ is a minimal vertex cover, then $y$ is a feasible solution(every edge is covered by a node, namely $\forall (u, v) \in E, y_u + y_v \geq 1$). To show the solution is a basic solution, we firstly show that the following lemma is true.
 \begin{lemma}
     If $C$ is a minimal vertex cover, then $\forall u \in C$, $\exists v \notin C$, such that $(u, v) \in E$.
 \end{lemma}
 \begin{proof}
-    Otherwise if there exists $x$ satisfied that $\forall (u, v) \in E\text{~and~}v \notin C$. Then remove $u$ from $C$ and we can get $C'$. Obvirusly $C'$ is a vertex cover, which contradicts to the fact that $C$ is a minimal vertex cover.
+    Otherwise if there exists $x$ satisfied that $\forall (u, v) \in E\text{~and~}v \notin C$. Then remove $u$ from $C$ and we can get $C'$. Obviously $C'$ is a vertex cover, which contradicts to the fact that $C$ is a minimal vertex cover.
 \end{proof}
 \noindent Considering the nodes $u$ satisfying $u \notin C$, then $m + u \in I(y)$ holds. These nodes donate an identity matrix in $A_{I(y)}$. Then considering the nodes $u$ which is in the vertex cover, then according to the lemma, we can find another adjacent vertex $v \notin C$, and $y_u + y_v = 1$, namely $id(u, v) \in I(y)$ where $id(u, v)$ stands for the serial number of the edge $(u, v)$. Hence $A_{I(y)}$ is consisted of two kinds of rows, and one of them is $a_{id(u, v)}$(either $u$ or $v$ is in $C$ and $(u, v) \in E$) and $a_{m+i}$ ($i$ is not in $C$). By Gauss elimination, it is obvirusly that $\mathrm{rank}\left(A_{I(y)}\right) = n$, hence $y$ is a basic solution.
 \par\noindent\textbf{Sufficiency.}\par
@@ -25,5 +25,5 @@ According to the lemma, $G'$ has a cycle $c_1, c_2, \dots, c_t$. Let $E_c$ be th
       1    &    0   &    0   & \cdots &    0   &    1
 \end{pmatrix}
 \]
-And obvirusly the above matrix is singular(and the original matrix $A$ is singular too), which leads the contradictions.\par
+And obviously the above matrix is singular(and the original matrix $A$ is singular too), which leads the contradictions.\par
 Then we will show that $C:=\{u \in V \mid y_u = 1\}$ is a minimal vertex cover. Showing that $y_u \in \{0, 1\}$, we can easily know that $y$ is a vertex cover. If $y$ is not a minimal vertex cover, then there must be a node $p \in C$, after we remove which we can obtain another vertex cover $y'$. Consider the $p$-th column of $A$, and according to the lemma 1, we can see that there is no adjacent node $q$ such that $y_p + y_q = 1$, which means that the $p$-th column of $A$ is a zero vector, which leads a contradiction.
