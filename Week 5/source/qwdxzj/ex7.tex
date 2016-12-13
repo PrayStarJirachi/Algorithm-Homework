@@ -1,58 +1,58 @@
-	\subsection{FLGV$\Rightarrow$ FLLPV}
+	\subsubsection*{FLGV$\Rightarrow$ FLLPV}
 	Construct \boldmath $A'=
-	\left(\begin{aligned}
+	\begin{pmatrix}
 	A\ I
-	\end{aligned}\right)$ where $I$ is identity matrix. Use algorithm for FLGV on $A'$ and $b$. Then we have exact one of the following:
+	\end{pmatrix}$ where $I$ is identity matrix. Use algorithm for FLGV on $A'$ and $b$. Then we have exact one of the following:
 	\begin{enumerate}
-		\item $\exists x'\in \mathbb{R}^{n+m}:x'\geq 0,A'x'=b$.\\ Let $x'=\left(\begin{aligned}
+		\item $\exists x'\in \mathbb{R}^{n+m}:x'\geq 0,A'x'=b$.\\ Let $x'=\begin{pmatrix}
 		x\\x''
-		\end{aligned}\right)$,$x\in \mathbb{R}^n,x''\in \mathbb{R}^m$.\\ So we have $b=A'x'=Ax+Ix''=Ax+x''\geq Ax$, thus $x\geq 0,Ax\leq b$
+		\end{pmatrix}$,$x\in \mathbb{R}^n,x''\in \mathbb{R}^m$.\\ So we have $b=A'x'=Ax+Ix''=Ax+x''\geq Ax$, thus $x\geq 0,Ax\leq b$
 		\item $\exists y\in \mathbb{R}^{m}:A'^Ty\geq 0,b^Ty<0$.\\ So we have $\left\{\begin{aligned}
 		A^Ty\geq& 0\\
 		I^Ty\geq& 0
 		\end{aligned}\right.$, thus $y\geq0,A^Ty\geq 0,b^Ty<0$
 	\end{enumerate}
-	\subsection{FLLCP$\Rightarrow$ FLGV}
+	\subsubsection*{FLLCP$\Rightarrow$ FLGV}
 	Construct \boldmath $A'=
-	\left(\begin{aligned}
+	\begin{pmatrix}
 	A\\ -A
-	\end{aligned}\right)$,$b'=\left(\begin{aligned}
+	\end{pmatrix}$,$b'=\begin{pmatrix}
 	b\\ -b
-	\end{aligned}\right)$. Use algorithm for FLLCP on $A'$ and $b'$. Then we have exact one of the following:
+	\end{pmatrix}$. Use algorithm for FLLCP on $A'$ and $b'$. Then we have exact one of the following:
 	\begin{enumerate}
 		\item $\exists x\in \mathbb{R}^n:x\geq 0,A'x\leq b'$.\\ So we have $\left\{\begin{aligned}
 		Ax\leq& b\\
 		-Ax\leq& -b
 		\end{aligned}\right.$, thus $x\geq 0,Ax=b$
-		\item $\exists y'\in \mathbb{R}^{2m}:y'\geq 0,A'^Ty'\geq 0,b^Ty'<0$.\\ Let $y'=\left(\begin{aligned}
+		\item $\exists y'\in \mathbb{R}^{2m}:y'\geq 0,A'^Ty'\geq 0,b^Ty'<0$.\\ Let $y'=\begin{pmatrix}
 		y_1\\ y_2
-		\end{aligned}\right)$,where $y_1\in \mathbb{R}^m,y_2\in \mathbb{R}^m$.\\ So we have $A'^Ty'=A^Ty_1-A^Ty_2=A^T(y_1-y_2)\geq 0$, $b'^Ty'=b^Ty_1-b^Ty_2=b^T(y_1-y_2)<0$.\\ Let $y\in \mathbb{R}^m,y=y_1-y_2$, thus $A^Ty\geq 0,b^Ty<0$
+		\end{pmatrix}$,where $y_1\in \mathbb{R}^m,y_2\in \mathbb{R}^m$.\\ So we have $A'^Ty'=A^Ty_1-A^Ty_2=A^T(y_1-y_2)\geq 0$, $b'^Ty'=b^Ty_1-b^Ty_2=b^T(y_1-y_2)<0$.\\ Let $y\in \mathbb{R}^m,y=y_1-y_2$, thus $A^Ty\geq 0,b^Ty<0$
 	\end{enumerate}
-	\subsection{FLEV$\Rightarrow$ FLLPV}
+	\subsubsection*{FLEV$\Rightarrow$ FLLPV}
 	Construct \boldmath $A'=
-	\left(\begin{aligned}
+	\begin{pmatrix}
 	A\\ -I
-	\end{aligned}\right)$ where $I$ is identity matrix, $b'=\left(\begin{aligned}
+	\end{pmatrix}$ where $I$ is identity matrix, $b'=\begin{pmatrix}
 	b\\ 0
-	\end{aligned}\right)$. Use algorithm for FLEV on $A'$ and $b'$. Then we have exact one of the following:
+	\end{pmatrix}$. Use algorithm for FLEV on $A'$ and $b'$. Then we have exact one of the following:
 	\begin{enumerate}
 		\item $\exists x\in \mathbb{R}^n:A'x\leq b'$.\\ So we have $\left\{\begin{aligned}
-		Ax\leq& b\\
-		-Ix\leq& 0
+		Ax\leq b\\
+		-Ix\leq 0
 		\end{aligned}\right.$, thus $x\geq 0,Ax\leq b$
-		\item $\exists y'\in \mathbb{R}^{n+m}:y'\geq 0,A'^Ty'= 0,b'^Ty'<0$.\\ Let $y'=\left(\begin{aligned}
+		\item $\exists y'\in \mathbb{R}^{n+m}:y'\geq 0,A'^Ty'= 0,b'^Ty'<0$.\\ Let $y'=\begin{pmatrix}
 		y\\y''
-		\end{aligned}\right),y\in \mathbb{R}^m,y''\in \mathbb{R}^n$.\\ So we have $A'^Ty'=A^Ty-Iy''=0$, $b'^Ty'=b^Ty<0$, thus $y\geq0,A^Ty\geq 0,b^Ty<0$
+		\end{pmatrix},y\in \mathbb{R}^m,y''\in \mathbb{R}^n$.\\ So we have $A'^Ty'=A^Ty-Iy''=0$, $b'^Ty'=b^Ty<0$, thus $y\geq0,A^Ty\geq 0,b^Ty<0$
 	\end{enumerate}
-	\subsection{FLLPV$\Rightarrow$ FLEV}
+	\subsubsection*{FLLPV$\Rightarrow$ FLEV}
 	Construct \boldmath $A'=
-	\left(\begin{aligned}
+	\begin{pmatrix}
 	A\ \ -A
-	\end{aligned}\right)$. Use algorithm for FLLCP on $A'$ and $b$. Then we have exact one of the following:
+	\end{pmatrix}$. Use algorithm for FLLCP on $A'$ and $b$. Then we have exact one of the following:
 	\begin{enumerate}
-		\item $\exists x'\in \mathbb{R}^{2n}:x'\geq 0,A'x'\leq b$.\\ Let $x'=\left(\begin{aligned}
+		\item $\exists x'\in \mathbb{R}^{2n}:x'\geq 0,A'x'\leq b$.\\ Let $x'=\begin{pmatrix}
 		x_1\\ x_2
-		\end{aligned}\right)$, where$x_1\in \mathbb{R}^n,x_2\in \mathbb{R}^n$.\\ So we have $A'x'=Ax_1-Ax_2=A(x_1-x_2)\leq b$. \\Let $x\in \mathbb{R}^n,x=x_1-x_2$, thus $Ax\leq b$
+		\end{pmatrix}$, where$x_1\in \mathbb{R}^n,x_2\in \mathbb{R}^n$.\\ So we have $A'x'=Ax_1-Ax_2=A(x_1-x_2)\leq b$. \\Let $x\in \mathbb{R}^n,x=x_1-x_2$, thus $Ax\leq b$
 		\item $\exists y\in \mathbb{R}^m:y\geq 0,A'^Ty\geq 0,b^Ty<0$.\\ So we have $\left\{\begin{aligned}
 		A^Ty\geq& 0\\
 		-A^Ty\geq& 0

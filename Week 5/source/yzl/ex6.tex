@@ -1,41 +1,23 @@
-    FLGV: According to FLGV-2, we have:
-
-    \[\exists \textbf{y} \in \textbf{R}^{m}: A^{T}\textbf{y} \geq 0, \textbf{b}^{T}\textbf{y} < 0 \]
-
-    if FLGV-1 also holds, there exists $\textbf{x} \geq 0$, $A\textbf{x}=\textbf{b}$.
-
-    because $A\textbf{x}=\textbf{b}$ can be written as $\textbf{b}^{T} = \textbf{x}^{T}A^{T}$, we have:
-
-    \[\textbf{b}^{T}\textbf{y}=\textbf{x}^{T}A^{T}\textbf{y}\]
-
-    Because $A^{T}\textbf{y} \geq 0$, $\textbf{x} \geq 0$, we can get $\textbf{x}^{T}A^{T}\textbf{y} \geq 0$.
-
-    but according to FLGV-2, $\textbf{b}^{T}\textbf{y} < 0$, which is a contradictory, so FLGV-2 implies that FLGV-1 does not hold.
-
-    FLLPV: According to FLLPV-2, we have:
-
-    \[\exists \textbf{y} \in \mathbb{R}^{m}: \textbf{y} \geq 0, A^{T}\textbf{y} \geq 0, \textbf{b}^{T}\textbf{y} < 0 \]
-
-    if FLLPV-1 also holds, there exists $\textbf{x} \geq 0$, $A\textbf{x} \leq \textbf{b}$.
-
-    because $A\textbf{x} \leq \textbf{b}$ can be written as $\textbf{b}^{T} \geq \textbf{x}^{T}A^{T}$, and $\textbf{y}$ holds $\textbf{y} \geq 0$, we have:
-
-    \[\textbf{b}^{T}\textbf{y} \geq \textbf{x}^{T}A^{T}\textbf{y}\]
-
-    Because $A^{T}\textbf{y} \geq 0$, $\textbf{x} \geq 0$, we can get $\textbf{b}^{T}\textbf{y} \geq \textbf{x}^{T}A^{T}\textbf{y} \geq 0$.
-
-    but according to FLLPV-2, $\textbf{b}^{T}\textbf{y} < 0$, which is a contradictory, so FLLPV-2 implies that FLLPV-1 does not hold.
-
-    FLEV: According to FLEV-2, we have:
-
-    \[\exists \textbf{y} \in \mathbb{R}^{m}: \textbf{y} \geq 0, A^{T}\textbf{y} \geq 0, \textbf{b}^{T}\textbf{y} < 0 \]
-
-    if FLEV-1 also holds, there exists $A\textbf{x} \leq \textbf{b}$.
-
-    because $A\textbf{x} \leq \textbf{b}$ can be written as $\textbf{b}^{T} \geq \textbf{x}^{T}A^{T}$, and $\textbf{y}$ holds $\textbf{y} \geq 0$, we have:
-
-    \[\textbf{b}^{T}\textbf{y} \geq \textbf{x}^{T}A^{T}\textbf{y}\]
-
-    Because $A^{T}\textbf{y} \geq 0$, $\textbf{x} \geq 0$, we can get $\textbf{b}^{T}\textbf{y} \geq \textbf{x}^{T}A^{T}\textbf{y} \geq 0$.
-
-    but according to FLEV-2, $\textbf{b}^{T}\textbf{y} < 0$, which is a contradictory, so FLEV-2 implies that FLEV-1 does not hold. 
+\subsubsection*{FLGV}
+According to \textbf{FLGV-2}, we have:
+\[\exists \textbf{y} \in \textbf{R}^{m}: A^{T}\textbf{y} \geq 0, \textbf{b}^{T}\textbf{y} < 0 \]
+if FLGV-1 also holds, there exists $\textbf{x} \geq 0$, $A\textbf{x}=\textbf{b}$.
+\noindent
+because $A\textbf{x}=\textbf{b}$ can be written as $\textbf{b}^{T} = \textbf{x}^{T}A^{T}$, we have:
+\[\textbf{b}^{T}\textbf{y}=\textbf{x}^{T}A^{T}\textbf{y}\]
+Because $A^{T}\textbf{y} \geq 0$, $\textbf{x} \geq 0$, we can get $\textbf{x}^{T}A^{T}\textbf{y} \geq 0$. But according to \textbf{FLGV-2}, $\textbf{b}^{T}\textbf{y} < 0$, which is a contradictory, so FLGV-2 implies that \textbf{FLGV-1} does not hold.
+\subsubsection*{FLLPV}
+According to \textbf{FLLPV-2}, we have:
+\[\exists \textbf{y} \in \mathbb{R}^{m}: \textbf{y} \geq 0, A^{T}\textbf{y} \geq 0, \textbf{b}^{T}\textbf{y} < 0 \]
+if \textbf{FLLPV-1} also holds, there exists $\textbf{x} \geq 0$, $A\textbf{x} \leq \textbf{b}$. Because $A\textbf{x} \leq \textbf{b}$ can be written as $\textbf{b}^{T} \geq \textbf{x}^{T}A^{T}$, and $\textbf{y}$ holds $\textbf{y} \geq 0$, we have:
+\[\textbf{b}^{T}\textbf{y} \geq \textbf{x}^{T}A^{T}\textbf{y}\]
+Because $A^{T}\textbf{y} \geq 0$, $\textbf{x} \geq 0$, we can get $\textbf{b}^{T}\textbf{y} \geq \textbf{x}^{T}A^{T}\textbf{y} \geq 0$.
+But according to \textbf{FLLPV-2}, $\textbf{b}^{T}\textbf{y} < 0$, which is a contradictory, so \textbf{FLLPV-2} implies that FLLPV-1 does not hold.
+\subsubsection*{FLEV}
+According to \textbf{FLEV-2}, we have:
+\[\exists \textbf{y} \in \mathbb{R}^{m}: \textbf{y} \geq 0, A^{T}\textbf{y} \geq 0, \textbf{b}^{T}\textbf{y} < 0 \]
+If \textbf{FLEV-1} also holds, there exists $A\textbf{x} \leq \textbf{b}$.
+Because $A\textbf{x} \leq \textbf{b}$ can be written as $\textbf{b}^{T} \geq \textbf{x}^{T}A^{T}$, and $\textbf{y}$ holds $\textbf{y} \geq 0$, we have:
+\[\textbf{b}^{T}\textbf{y} \geq \textbf{x}^{T}A^{T}\textbf{y}\]
+Because $A^{T}\textbf{y} \geq 0$, $\textbf{x} \geq 0$, we can get $\textbf{b}^{T}\textbf{y} \geq \textbf{x}^{T}A^{T}\textbf{y} \geq 0$.
+But according to \textbf{FLEV-2}, $\textbf{b}^{T}\textbf{y} < 0$, which is a contradictory, so \textbf{FLEV-2} implies that FLEV-1 does not hold.
