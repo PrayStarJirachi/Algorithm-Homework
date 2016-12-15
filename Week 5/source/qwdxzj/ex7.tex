@@ -12,13 +12,13 @@
 		I^Ty\geq& 0
 		\end{aligned}\right.$, thus $y\geq0,A^Ty\geq 0,b^Ty<0$
 	\end{enumerate}
-	\subsubsection*{FLLCP$\Rightarrow$ FLGV}
+	\subsubsection*{FLLPV$\Rightarrow$ FLGV}
 	Construct \boldmath $A'=
 	\begin{pmatrix}
 	A\\ -A
 	\end{pmatrix}$,$b'=\begin{pmatrix}
 	b\\ -b
-	\end{pmatrix}$. Use algorithm for FLLCP on $A'$ and $b'$. Then we have exact one of the following:
+	\end{pmatrix}$. Use algorithm for FLLPV on $A'$ and $b'$. Then we have exact one of the following:
 	\begin{enumerate}
 		\item $\exists x\in \mathbb{R}^n:x\geq 0,A'x\leq b'$.\\ So we have $\left\{\begin{aligned}
 		Ax\leq& b\\
@@ -48,7 +48,7 @@
 	Construct \boldmath $A'=
 	\begin{pmatrix}
 	A\ \ -A
-	\end{pmatrix}$. Use algorithm for FLLCP on $A'$ and $b$. Then we have exact one of the following:
+	\end{pmatrix}$. Use algorithm for FLLPV on $A'$ and $b$. Then we have exact one of the following:
 	\begin{enumerate}
 		\item $\exists x'\in \mathbb{R}^{2n}:x'\geq 0,A'x'\leq b$.\\ Let $x'=\begin{pmatrix}
 		x_1\\ x_2
