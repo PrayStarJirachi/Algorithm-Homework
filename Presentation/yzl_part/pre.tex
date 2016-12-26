@@ -8,27 +8,27 @@ which $P$ is a prime, $A, B \in [0, P)$.
 \end{frame}
 \begin{frame}
 \frametitle{Naive Approach}
-According to Fermat Theory, when $A, P$ is coprime, we have: 
+According to Fermat Theorem, when $A, P$ is coprime, we have:
 
 \[A^{P} = A\,\,(mod\,\,P)\]
 
 the only special case is $A = 0$, and in this case, $B$ must be zero.
 
 \bigskip
-For $A \neq 0$, we can just iterate $x$ from 0 to $P - 1$ checking if $A^x = B\,\,(mod\,\,P)$.
-the complexity is $O(P)$.
+For $A \neq 0$, we can just iterate $x$ from 0 to $P - 1$ to check if $A^x = B\,\,(mod\,\,P)$.
+The complexity is $O(P)$.
 
 
 \end{frame}
 \begin{frame}
 \frametitle{Yet Another Naive Algorithm}
-We mapped $A^{x} \rightarrow x, x \in [0, P - 1)$ by using a Hash-Table.
+We mapped $A^{x} \rightarrow x, x \in [0, P)$ by using a Hash-Table.
 
 \bigskip
-For finding $B$, we just need to query $B$ in this Hash-Table, which only requires $O(1)$ time.
+In order to $B$, we just need to query $B$ in this Hash-Table, which only takes $O(1)$ time.
 
 \bigskip
-Preparing the Hash-Table needs $O(P)$ time, which the total complexity is $O(P + 1) = O(P)$.
+Precalculating this Hash-Table costs $O(P)$ time, and the total complexity of which is $O(P + 1) = O(P)$.
 \end{frame}
 
 \begin{frame}
@@ -45,28 +45,31 @@ In this step, we needs $S + \log P$ operations.
 
 \begin{frame}
 \frametitle{Balanced Programming}
-$x$ can be represented as $i\times S + j$, we can transform the equation:
+
+\[A^x = B\,\,(mod\,\,P)\]
+
+$x$ can be represented as $i\times S + j$, we can do such transforming:
 
 \[A^{i\times S + j} = B \Leftrightarrow A^{j} = B \times (A^{-S})^{i}\,\,(mod\,\,P)\]
 
-which $j \in [0, S)$, and $i \leq \frac{P}{S}$.
+which $j \in [0, S)$, and $i < \frac{P}{S}$.
 
 \bigskip
-We can just iterate $i$ from 0 to $\frac{P}{S}$ checking if $B \times (A^{-S})^{i}$ is in Hash-Table. In worst occasion, we need to iterator $\frac{P}{S} + 1$ times.
+We can just iterate $i$ from 0 to $\frac{P}{S}$ to check if $B \times (A^{-S})^{i}$ is in Hash-Table. In the worst occasion, we need to iterate $\frac{P}{S}$ times.
 \end{frame}
 
 \begin{frame}
 \frametitle{Total complexity evaluation}
-As you can see, the total operations we need to do is 
+As you can see, the total operations we need to do are
 
-\[S + \log P + \frac{P}{S} + 1\]
+\[S + \log P + \frac{P}{S}\]
 
-we want to choose $S$ optimally to have the best total complexity.
+we want to choose $S$ optimally to get the best total complexity.
 
 \bigskip
-when $S = \sqrt{P}$, the total operations is:
+when $S = \sqrt{P}$, the total operations are:
 
-\[S + \log P + \frac{P}{S} + 1 = 2\sqrt{P} + \log P + 1 = O(\sqrt{P})\]
+\[S + \log P + \frac{P}{S} = 2\sqrt{P} + \log P = O(\sqrt{P})\]
 
-thus we get a $O(\sqrt{P})$ algorithm by choosing $S$ optimally.
+thus we get an $O(\sqrt{P})$ algorithm by choosing $S$ optimally.
 \end{frame}
