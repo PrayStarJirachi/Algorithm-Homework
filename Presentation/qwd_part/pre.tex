@@ -26,7 +26,7 @@
 				\item store the value $v[x]$
 				\item $O(n)$ space
 				\item $O(1)$ time for add
-				\item $O(m)$ time for query
+				\item $O(n)$ time for query
 			\end{itemize}
 			\column{6cm}
 			\only{\centering{{\includegraphics[width=6cm]{qwd_part/0.png}<1-2>}}}
@@ -84,7 +84,7 @@
 		\begin{columns}
 			\column{4cm}
 			\begin{itemize}
-				\item<1-> if $v$ is heavy, $vh[u]\leftarrow vh[u]+x$
+				\item<1-> if $u$ is heavy, $vh[u]\leftarrow vh[u]+x$
 				\item<3-> if $u$ is light, $sl[v]\leftarrow sl[v]+x$, $u,v$ are neighbors
 				\item<4-> $O(1)$ time for heavy
 				\item<5-> $O(B)$ time for light
@@ -99,7 +99,7 @@
 	\end{frame}
 	\begin{frame}[c]\frametitle{$Query(x)$ details}
 		\begin{columns}
-			\column{5cm}
+			\column{6cm}
 			\begin{itemize}
 				%\item $s[x]=\sum v[heavy\ neighbors]+\sum v[light\ neighbors]$
 				\item<1-> $\sum v[heavy\ neighbors]=\sum_{y\ is\ heavy\  neighbor}vh[y]$
@@ -114,10 +114,10 @@
 				\item<5-> $cnt\_heavy \cdot B\leq 2m=O(n)$
 				\item<6-> $O(n/B)$ time
 			\end{itemize}
-			\column{5cm}
-			\only{\centering{{\includegraphics[width=5cm]{qwd_part/22.png}<1>}}}
-			\only{\centering{{\includegraphics[width=5cm]{qwd_part/23.png}<2>}}}
-			\only{\centering{{\includegraphics[width=5cm]{qwd_part/18.png}<3->}}}
+			\column{4cm}
+			\only{\centering{{\includegraphics[width=4cm]{qwd_part/22.png}<1>}}}
+			\only{\centering{{\includegraphics[width=4cm]{qwd_part/23.png}<2>}}}
+			\only{\centering{{\includegraphics[width=4cm]{qwd_part/18.png}<3->}}}
 		\end{columns}
 	\end{frame}
 	\begin{frame}[c]\frametitle{Balance}
